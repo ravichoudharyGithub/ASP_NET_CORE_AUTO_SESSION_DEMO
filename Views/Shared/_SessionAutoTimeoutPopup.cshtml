@@ -1,0 +1,42 @@
+﻿@*author Ravi Choudhary <ravichoudhary294@gmail.com>*@
+
+@*call this view inside _layout or _header as per your choice.*@
+@*in this project calling _layout page*@
+
+<html ng-app="SessionApp">
+<body ng-controller="EventsCtrl">
+    @*<body ng-controller="MyController">*@
+    <div class="modal p-0" tabindex="-1" id="session-timeout-popup">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content border-0">
+                <button type="button" onclick="signout()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <section class="emailVarifyContainer">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-12 col-lg-12 col-md-12 text-center">
+                                <h2 class="f-60 theme-color">You're Idle. Do Something </h2>
+                                <p>You were inactive 20 minute <strong idle-countdown="countdown" id="remaining-time">{{countdown}} seconds(s)</strong></p>
+                            </div>
+                            <div class="mt-4">
+                                <button type="button" onclick="signout()" class="btn btn-theme rounded-pill f-18">
+                                    Logout
+                                </button>
+                                <button id="stay-login" type="button" ng-click="reset()" class="btn btn-theme rounded-pill f-18">
+                                    Stay Logged In
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+@*<script src="~/js/angular-idle.js"></script>*@
+<script src="~/js/angular-idle.min.js"></script>
+<script src="~/js/session-auto-timeout.js"></script>
